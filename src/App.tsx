@@ -5,16 +5,19 @@ import { Sells } from "./components/Sells";
 import "/node_modules/primeflex/primeflex.css";
 import "./index.css";
 import { Cobrar } from "./components/Cobrar";
+import { CobrarSideBar } from "./components/CobrarSideBar";
 
 function App() {
   return (
     <>
       <div className="max-w-max">
-        <Header />
-        <NavBar />
+        {/* <Header />
+        <NavBar /> */}
+        <div className="flex">
+        <Cobrar />
+        <CobrarSideBar />
 
-        <Cobrar/>
-        
+        </div>
         <Footer />
       </div>
     </>

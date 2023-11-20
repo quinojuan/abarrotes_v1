@@ -1,7 +1,7 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -161,11 +161,15 @@
 }
 
 button {
-    padding: 10px;
-    width: auto;
-    font-size: 15px;
+  padding: 10px;
+  width: auto;
+  font-size: 15px;
 }
 
 .icons img {
   width: 100px;
+}
+#cobrar figcaption {
+  font-size: 1.25rem;
+  margin-top: 8px;
 }

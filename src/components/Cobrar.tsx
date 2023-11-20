@@ -6,7 +6,7 @@ import { PagoEnEfectivo } from "./PagoEnEfectivo";
 export const Cobrar = () => {
   return (
     <>
-      <div>
+      <div id="cobrar">
         <h3 className="bg-blue-600 text-white">COBRAR</h3>
         <h2 className="text-center">Total a Cobrar</h2>
         <p className="text-blue-600 text-7xl text-center mb-3">$ 5.000</p>
