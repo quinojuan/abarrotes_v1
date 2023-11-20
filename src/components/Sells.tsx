@@ -10,7 +10,7 @@ export const Sells = () => {
         </h3>
         <SearchBar />
         <hr />
-        <div className="flex justify-content-evenly">
+        <div className="flex justify-content-evenly mt-2 mb-2">
           <button>Varios</button>
           <button>Art. Común</button>
           <button>Buscar</button>

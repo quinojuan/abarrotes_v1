@@ -12,7 +12,7 @@ export const Cobrar = () => {
         <p className="text-blue-600 text-7xl text-center mb-3">$ 5.000</p>
         <div className="icons flex justify-content-around">
           <div className="flex flex-column align-items-center">
-            <img src={imgEfectivo} alt="efectivo" />
+            <img src={imgEfectivo} alt="efectivo"/>
             <figcaption>Efectivo</figcaption>
           </div>
           <div className="flex flex-column align-items-center">

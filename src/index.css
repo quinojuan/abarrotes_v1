@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -172,4 +175,16 @@ button {
 #cobrar figcaption {
   font-size: 1.25rem;
   margin-top: 8px;
+}
+#cobrar img:hover{
+  background: #e0e4e5;
+}
+#cobrar img {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.cobrarSideBarBtn button {
+  width: 50%;
+
 }

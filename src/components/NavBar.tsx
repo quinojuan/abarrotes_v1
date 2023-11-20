@@ -1,6 +1,6 @@
 export const NavBar = () => {
   return (
-    <div className="flex justify-content-evenly">
+    <div className="flex justify-content-evenly mb-2">
         <button>Ventas</button>
         <button>Clientes</button>
         <button>Productos</button>
