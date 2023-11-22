@@ -4,9 +4,9 @@ import { NavBar } from "./components/NavBar";
 import { Sells } from "./components/Sells";
 import "/node_modules/primeflex/primeflex.css";
 import "./index.css";
-import { Cobrar } from "./components/Cobrar";
-import { CobrarSideBar } from "./components/CobrarSideBar";
-import { CreditoAClientes } from "./components/CreditoAClientes";
+// import { Cobrar } from "./components/Cobrar";
+// import { CobrarSideBar } from "./components/CobrarSideBar";
+// import { CreditoAClientes } from "./components/CreditoAClientes";
 
 function App() {
   return (
