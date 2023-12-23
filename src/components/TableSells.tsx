@@ -1,4 +1,12 @@
-export const TableSells = () => {
+interface Producto {
+  barcode: number;
+  description: string;
+  sell_price: number;
+  quantity: number;
+}
+
+
+export const TableSells = ( {barcode, description, quantity, sell_price}: Producto ) => {
   return (
     <>
       <table border={1} cellSpacing={0}>
@@ -14,11 +22,11 @@ export const TableSells = () => {
         </thead>
         <tbody>
           <tr>
-            <td>1000</td>
-            <td>Campera para niños</td>
-            <td>5000</td>
-            <td>1</td>
-            <td>5000</td>
+            <td>{barcode}</td>
+            <td>{description}</td>
+            <td>{sell_price}</td>
+            <td>{quantity}</td>
+            <td>{ sell_price * quantity }</td>
             <td>5</td>
           </tr>
           <tr>

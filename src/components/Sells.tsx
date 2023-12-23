@@ -20,7 +20,12 @@ export const Sells = () => {
           <button>Borrar Art.</button>
         </div>
         <hr />
-        <TableSells />
+        <TableSells
+          barcode={1000}
+          description="Buzo polar"
+          quantity={8}
+          sell_price={600}
+        />
         <hr />
         <div className="flex align-items-center justify-content-end">
           <button className="mr-3">Cobrar</button>
