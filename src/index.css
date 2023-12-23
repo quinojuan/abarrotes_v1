@@ -176,7 +176,7 @@ button {
   font-size: 1.25rem;
   margin-top: 8px;
 }
-#cobrar img:hover{
+#cobrar img:hover {
   background: #e0e4e5;
 }
 #cobrar img {
@@ -186,5 +186,23 @@ button {
 }
 .cobrarSideBarBtn button {
   width: 50%;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 10px auto;
+}
+
+label {
+  flex: 1;
+}
+.btn-form {
+  width: 80px;
+  align-self: flex-end;
+}
+span {
+  font-size: x-small;
+  color: red;
 }
