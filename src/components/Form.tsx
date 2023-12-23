@@ -41,7 +41,7 @@ export const Form = () => {
           },
           maxLength: {
             value: 20,
-            message: "Escriba un minimo de 20 caracteres",
+            message: "Escriba un máximo de 20 caracteres",
           },
         })}
       />
