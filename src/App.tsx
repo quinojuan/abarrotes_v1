@@ -24,7 +24,8 @@ function App() {
         {/* <CreditoAClientes /> */}
         {/* </div> */}
         {/* <Productos/> */}
-        <Form />
+        {/* <Form /> */}
+        <Productos />
         <Footer />
       </div>
     </>

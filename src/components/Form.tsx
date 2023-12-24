@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 // Al proporcionar un tipo genérico a useForm, estás especificando el tipo de los datos que esperas manejar en tu formulario, y esto afecta al tipado del objeto formState devuelto por useForm.
@@ -23,6 +24,7 @@ type Inputs = {
   confirmarPassword: string;
   fechaNacimiento: string;
   pais: string;
+  provincia?: string;
   foto: string;
   terminos: boolean;
 };
@@ -32,13 +34,26 @@ export const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    reset,
     watch,
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    defaultValues: {
+      pais: "ar",
+    },
+  });
 
   console.log(errors);
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+
+    alert("enviando formulario");
+
+    reset();
+
+    // este es el momento donde envio mi data a un backend por ejemplo
+    // axios.post("localhost:3001/usuario", data)
   });
 
   return (
@@ -145,10 +160,28 @@ export const Form = () => {
 
       <label htmlFor="pais">Pais</label>
       <select {...register("pais")}>
+        <option value=""></option>
         <option value="mx">Mexico</option>
         <option value="co">Colombia</option>
         <option value="ar">Argentina</option>
       </select>
+
+      {watch("pais") == "ar" && (
+        <>
+          <input
+            type="text"
+            placeholder="Ingrese una provincia"
+            {...register("provincia", {
+              required: {
+                value: true,
+                message: "Si está en Argentina se requiere provincia",
+              },
+            })}
+          />
+          {errors.provincia && <span>{errors.provincia?.message}</span>}
+        </>
+      )}
+
       <label htmlFor="foto"></label>
       <input type="file" {...register("foto")} />
       <label htmlFor="terminos">Acepto términos y condiciones</label>
