@@ -188,24 +188,53 @@ button {
   width: 50%;
 }
 
-form {
+.form-productos {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  margin: 10px auto;
+  width: 450px;
 }
 
-label {
+.row {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.row label {
+  width: 180px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.comoSeVende div label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.row input {
   flex: 1;
+  border: 1px solid #ce753d;
 }
-.btn-form {
-  width: 80px;
-  align-self: flex-end;
+
+.form-productos div p {
+  position: relative;
+  display: inline-block;
 }
-span {
-  font-size: x-small;
-  color: red;
+
+.form-productos div p span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  display: inline-block;
 }
-pre {
-  color: blue;
+
+.form-productos div p span:first-child {
+  left: 0;
+}
+.form-productos div p span:last-child {
+  right: 0;
 }
