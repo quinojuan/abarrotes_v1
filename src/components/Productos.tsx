@@ -37,7 +37,7 @@ export const Productos = () => {
   });
 
   return (
-    <div>
+    <div className="container-productos">
       <h2>Productos</h2>
       <div>
         <Boton texto="Nuevo" />
@@ -122,24 +122,21 @@ export const Productos = () => {
         </div>
         <div className="row">
           <label htmlFor="departamento">Departamento</label>
-          <select name="" id="departamento">
+          <select name="" id="departamento" {...register("departamento", {})}>
             <option value="ropaInterior">Ropa interior</option>
             <option value="Remeras">Remeras</option>
             <option value="pantalones">Pantalones</option>
           </select>
         </div>
-        <div>
           <p>
             <span></span>Inventario<span></span>
           </p>
-        </div>
         <div className="inventario">
           <input
             id="utilizaInventario"
             type="checkbox"
             {...register("utilizaInventario", {})}
           />
-          &nbsp;
           <label htmlFor="utilizaInventario">
             Este producto SI utiliza inventario
           </label>
@@ -157,7 +154,7 @@ export const Productos = () => {
           <input id="minimo" type="text" {...register("minimo", {})} />
         </div>
         <hr />
-        <Boton texto="Guardar Producto" />
+        <Boton texto="Guardar Producto"/>
 
         <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>

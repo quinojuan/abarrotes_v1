@@ -7,6 +7,6 @@ interface Props {
 
 export const Boton = ({texto, accion}: Props) => {
   return (
-    <button className="chulo">{texto}</button>
+    <button className="boton-chulo">{texto}</button>
   );
 };
