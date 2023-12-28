@@ -10,6 +10,7 @@ import { CreditoAClientes } from "./components/CreditoAClientes";
 import { Boton } from "./components/Boton";
 import { Productos } from "./components/Productos";
 import { Form } from "./components/Form";
+import { FormRevis } from "./components/FormRevis";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
         {/* </div> */}
         {/* <Productos/> */}
         {/* <Form /> */}
-        <Productos />
+        {/* <Productos /> */}
+        <FormRevis />
         <Footer />
       </div>
     </>
