@@ -28,12 +28,14 @@ export const Productos = () => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data, e) => {
+    // e.preventDefault()
     console.log(data);
 
     // logica
 
-    reset();
+  // if (data.descripcion) reset()
+  reset()
   });
 
   return (

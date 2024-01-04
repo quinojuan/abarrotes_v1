@@ -24,10 +24,10 @@ function App() {
           <CobrarSideBar /> */}
         {/* <CreditoAClientes /> */}
         {/* </div> */}
-        {/* <Productos/> */}
+        <Productos/>
         {/* <Form /> */}
         {/* <Productos /> */}
-        <FormRevis />
+        {/* <FormRevis /> */}
         <Footer />
       </div>
     </>
