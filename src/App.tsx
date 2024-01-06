@@ -18,13 +18,13 @@ function App() {
       <div className="max-w-max">
         <Header />
         {/* <NavBar /> */}
-        {/* <Sells/> */}
+        <Sells/>
         {/* <div className="flex">
           <Cobrar />
           <CobrarSideBar /> */}
         {/* <CreditoAClientes /> */}
         {/* </div> */}
-        <Productos/>
+        {/* <Productos/> */}
         {/* <Form /> */}
         {/* <Productos /> */}
         {/* <FormRevis /> */}
