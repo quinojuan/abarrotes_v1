@@ -239,6 +239,7 @@ button {
 }
 .boton-chulo {
   width: max-content;
+  border-radius: 5px;
 }
 
 .form-revisitas {
@@ -259,4 +260,8 @@ button {
 .form-revisitas button {
   width: min-content;
   margin: 10px auto;
+}
+
+.active button {
+  background: rgb(113, 112, 112);
 }
