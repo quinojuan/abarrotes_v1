@@ -18,7 +18,7 @@ export const NavBar = () => {
   return (
     <>
       <div className="flex justify-content-evenly mb-2">
-        <NavLink to="/ventas">
+        <NavLink to="/">
           <Boton texto="Ventas" />
         </NavLink>
         <NavLink to="/clientes">
@@ -38,7 +38,7 @@ export const NavBar = () => {
         </NavLink>
       </div>
       <Routes>
-        <Route path="/ventas" element={<Sells />} />
+        <Route path="/" element={<Sells />} />
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/inventario" element={<Inventario />} />
