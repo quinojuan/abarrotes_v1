@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Boton } from "./Boton";
+import axios from "axios";
 
 type Inputs = {
   codigoDeBarras: string;
@@ -28,13 +29,9 @@ export const Productos = () => {
     },
   });
 
-  const onSubmit = handleSubmit((data, e) => {
-    // e.preventDefault()
+  const onSubmit = handleSubmit((data) => {
     console.log(data);
-
-    // logica
-
-  // if (data.descripcion) reset()
+    axios.post("http://localhost:3000/productos", data)
   reset()
   });
 
