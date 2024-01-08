@@ -9,7 +9,7 @@ interface Producto {
 export const TableSells = ( {barcode, description, quantity, sell_price}: Producto ) => {
   return (
     <>
-      <table border={1} cellSpacing={0}>
+      <table border={1} cellSpacing={1}>
         <thead>
           <tr>
             <th>Código de barras</th>
