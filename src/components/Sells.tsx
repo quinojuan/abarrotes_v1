@@ -1,20 +1,10 @@
 import { useEffect, useState } from "react";
 import { SearchBar } from "./SearchBar";
 import { TableSells } from "./TableSells";
+import { Inputs } from "../types/types";
 import axios from "axios";
 
-type Inputs = {
-  codigo_de_barras: string;
-  descripcion: string;
-  como_se_vende?: string;
-  precio_costo: string;
-  precio_venta: string;
-  precio_mayor: string;
-  departamento?: string;
-  utiliza_inventario: boolean;
-  cantidad_actual: string;
-  minimo: string;
-};
+
 
 export const Sells = () => {
   const [products, setProducts] = useState<Inputs[]>([]);

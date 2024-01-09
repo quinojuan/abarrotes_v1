@@ -1,17 +1,5 @@
 import { useState } from "react";
-
-type Inputs = {
-  codigo_de_barras: string;
-  descripcion: string;
-  comoSeVende?: string;
-  precioCosto: string;
-  precioVenta: string;
-  precioMayor: string;
-  departamento?: string;
-  utilizaInventario: boolean;
-  cantidadActual: string;
-  minimo: string;
-};
+import { Inputs } from "../types/types";
 
 type SearchBarProps = {
   products: Inputs[];
@@ -51,7 +39,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ products }) => {
       {foundProduct && (
         <div>
           <h2>Informacion del producto encontrado</h2>
-          <p>Código: {foundProduct.codigoDeBarras}</p>
+          <p>Código: {foundProduct.codigo_de_barras}</p>
           <p>Descripcion: {foundProduct.descripcion}</p>
         </div>
       )}

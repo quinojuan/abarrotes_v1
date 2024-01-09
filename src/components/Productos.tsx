@@ -1,38 +1,22 @@
 import { useForm } from "react-hook-form";
 import { Boton } from "./Boton";
 import axios from "axios";
-
-type Inputs = {
-  codigoDeBarras: string;
-  descripcion: string;
-  comoSeVende?: string;
-  precioCosto: string;
-  precioVenta: string;
-  precioMayor: string;
-  departamento?: string;
-  utilizaInventario: boolean;
-  cantidadActual: string;
-  minimo: string;
-};
+import { Inputs } from "../types/types";
 
 export const Productos = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    setValue,
+    // formState: { errors },
+    // setValue,
     reset,
     watch,
-  } = useForm<Inputs>({
-    defaultValues: {
-      comoSeVende: "porPieza",
-    },
-  });
+  } = useForm<Inputs>({});
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
-    axios.post("http://localhost:3000/productos", data)
-  reset()
+    axios.post("http://localhost:3000/productos", data);
+    reset();
   });
 
   return (
@@ -51,11 +35,11 @@ export const Productos = () => {
       <p>Producto</p>
       <form className="form-productos" onSubmit={onSubmit}>
         <div className="row">
-          <label htmlFor="codigoDeBarras">Codigo de barras</label>
+          <label htmlFor="codigo_de_barras">Codigo de barras</label>
           <input
-            id="codigoDeBarras"
+            id="codigo_de_barras"
             type="text"
-            {...register("codigoDeBarras", {})}
+            {...register("codigo_de_barras", {})}
           />
         </div>
         <div className="row">
@@ -66,86 +50,89 @@ export const Productos = () => {
             {...register("descripcion", {})}
           />
         </div>
+
         <div className="row comoSeVende">
           <label>Como se vende</label>
           <div>
             <input
               id="porPieza"
               type="radio"
-              {...register("comoSeVende", {})}
-              name="modoVenta"
+              {...register("como_se_vende", {})}
+              name="como_se_vende"
               value={"porPieza"}
+              defaultChecked={true}
             />
             <label htmlFor="porPieza"> Unidad</label>
             <input
               id="aGranel"
               type="radio"
-              {...register("comoSeVende", {})}
-              name="modoVenta"
+              {...register("como_se_vende", {})}
+              name="como_se_vende"
               value={"aGranel"}
             />
             <label htmlFor="aGranel"> Granel</label>
             <input
               id="comoPaquete"
               type="radio"
-              {...register("comoSeVende", {})}
-              name="modoVenta"
+              {...register("como_se_vende", {})}
+              name="como_se_vende"
               value={"comoPaquete"}
             />
             <label htmlFor="comoPaquete"> Paquete</label>
           </div>
         </div>
+
         <div className="row">
-          <label htmlFor="precioCosto">Precio costo</label>
+          <label htmlFor="precio_costo">Precio costo</label>
           <input
-            id="precioCosto"
+            id="precio_costo"
             type="text"
-            {...register("precioCosto", {})}
+            {...register("precio_costo", {})}
           />
         </div>
         <div className="row">
-          <label htmlFor="precioVenta">Precio venta</label>
+          <label htmlFor="precio_venta">Precio venta</label>
           <input
-            id="precioVenta"
+            id="precio_venta"
             type="text"
-            {...register("precioVenta", {})}
+            {...register("precio_venta", {})}
           />
         </div>
         <div className="row">
-          <label htmlFor="precioMayor">Precio mayor</label>
+          <label htmlFor="precio_mayor">Precio mayor</label>
           <input
-            id="precioMayor"
+            id="precio_mayor"
             type="text"
-            {...register("precioMayor", {})}
+            {...register("precio_mayor", {})}
           />
         </div>
         <div className="row">
           <label htmlFor="departamento">Departamento</label>
-          <select name="" id="departamento" {...register("departamento", {})}>
+          <select id="departamento" {...register("departamento", {})}>
             <option value="ropaInterior">Ropa interior</option>
             <option value="Remeras">Remeras</option>
             <option value="pantalones">Pantalones</option>
           </select>
         </div>
-          <p>
-            <span></span>Inventario<span></span>
-          </p>
+        <p>
+          <span></span>Inventario<span></span>
+        </p>
         <div className="inventario">
           <input
-            id="utilizaInventario"
+            id="utiliza_inventario"
             type="checkbox"
-            {...register("utilizaInventario", {})}
+            {...register("utiliza_inventario", {})}
           />
-          <label htmlFor="utilizaInventario">
+          <label htmlFor="utiliza_inventario">
             Este producto SI utiliza inventario
           </label>
         </div>
         <div className="row">
-          <label htmlFor="cantidadActual">Cantidad actual</label>
+          <label htmlFor="cantidad_actual">Cantidad actual</label>
           <input
-            id="cantidadActual"
+            id="cantidad_actual"
             type="text"
-            {...register("cantidadActual", {})}
+            {...register("cantidad_actual", {})}
           />
         </div>
         <div className="row">
@@ -153,7 +140,7 @@ export const Productos = () => {
           <input id="minimo" type="text" {...register("minimo", {})} />
         </div>
         <hr />
-        <Boton texto="Guardar Producto"/>
+        <Boton texto="Guardar Producto" />
 
         <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>
