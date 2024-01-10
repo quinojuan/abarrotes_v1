@@ -14,6 +14,7 @@ export const Reporte = () => {
         console.error("Error al obtener los datos de inventario", error)
       );
   }, []);
+  
   return (
     <>
       <h4>REPORTE DE INVENTARIO</h4>

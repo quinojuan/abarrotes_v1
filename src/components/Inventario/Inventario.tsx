@@ -1,9 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { ModeloInventario } from "../../types/types";
 import { Boton } from "../Boton";
-import { NavLink, Outlet, Route, Routes } from "react-router-dom";
-import { AgregarAInventario } from "./Agregar";
+import { NavLink, Outlet } from "react-router-dom";
 
 export const Inventario = () => {
   return (
@@ -15,9 +11,12 @@ export const Inventario = () => {
         </NavLink>
         <Boton texto="Ajustes" />
         <Boton texto="Productos bajos en Inventario" />
-        <Boton texto="Reporte de Inventario" />
+        <NavLink to="reporte">
+          <Boton texto="Reporte de Inventario" />
+        </NavLink>
         <Boton texto="Reporte de movimientos" />
       </div>
+      <Outlet />
     </>
   );
 };

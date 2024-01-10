@@ -13,7 +13,8 @@ import { Clientes } from "./Clientes";
 import { Inventario } from "./Inventario/Inventario";
 import { Configuracion } from "./Configuracion";
 import { Corte } from "./Corte";
-import { AgregarAInventario } from "./Inventario/Agregar";
+import { Agregar } from "./Inventario/Agregar";
+import { Reporte } from "./Inventario/Reporte";
 
 export const NavBar = () => {
   return (
@@ -43,7 +44,8 @@ export const NavBar = () => {
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/inventario" element={<Inventario />}>
-          <Route path="agregarinventario" element={<AgregarAInventario />} />
+          <Route path="agregarinventario" element={<Agregar />} />
+          <Route path="reporte" element={<Reporte />} />
         </Route>
         <Route path="/configuracion" element={<Configuracion />} />
         <Route path="/corte" element={<Corte />} />
