@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SearchBar } from "./SearchBar";
+import { SearchBar } from "../hooks/useSearchBar";
 import { TableSells } from "./TableSells";
 import { Inputs } from "../types/types";
 import axios from "axios";
