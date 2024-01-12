@@ -34,7 +34,7 @@ export type ModeloInventario = {
 };
 
 export type UseSearchBarProps = {
-  products: Inputs[];
+  productos: Inputs[];
 };
 
 export type UseSearchBarResult = {

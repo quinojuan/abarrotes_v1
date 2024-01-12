@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { SearchBar } from "../hooks/useSearchBar";
 import { TableSells } from "./TableSells";
 import { Inputs } from "../types/types";
 import axios from "axios";
-
-
+import { SearchBar } from "./SearchBar";
 
 export const Sells = () => {
   const [products, setProducts] = useState<Inputs[]>([]);
@@ -21,7 +19,10 @@ export const Sells = () => {
         <h3 className="bg-blue-600 text-white">
           VENTA DE PRODUCTOS - Ticket 1
         </h3>
-        <SearchBar products={products} />
+
+        {/* aca va el componente de la barra de busquedas */}
+        <SearchBar />
+
         <hr />
         <div className="flex justify-content-evenly mt-2 mb-2">
           <button>Varios</button>

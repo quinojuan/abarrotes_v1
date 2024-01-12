@@ -3,7 +3,7 @@ import axios from "axios";
 import { Inputs } from "../types/types";
 
 const useProducts = () => {
-  const [products, setProducts] = useState<Inputs[]>([]);
+  const [productos, setProducts] = useState<Inputs[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,14 +22,7 @@ const useProducts = () => {
     fetchProducts();
   }, []);
 
-  const searchProducts = (codigo: string) => {
-    const filteredProducts = products.filter(
-      (product) => product.codigo_de_barras === codigo
-    );
-    return filteredProducts;
-  };
-
-  return { products, loading, error, searchProducts };
+  return { productos, loading, error };
 };
 
 export default useProducts;
