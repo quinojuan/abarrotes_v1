@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import useProducts from "../hooks/useProducts";
-import { Inputs } from "../types/types";
+import { useState } from "react";
+import useProducts from "../../hooks/useProducts";
+import { Inputs } from "../../types/types";
 import axios from "axios";
 
-export const SearchBar = () => {
+export const Ajustes = () => {
   const [foundProduct, setFoundProduct] = useState<null | Inputs>(null);
-  const [cantidadAAgregar, setCantidadAAgregar] = useState("");
+  const [cantidadAAjustar, setCantidadAAjustar] = useState("");
   const [codigoBarrasInput, setCodigoBarrasInput] = useState("");
   const { productos, loading, error } = useProducts();
 
@@ -33,12 +33,12 @@ export const SearchBar = () => {
     if (foundProduct) {
       const data = {
         codigo_de_barras: codigoBarrasInput,
-        cantidad_a_agregar: cantidadAAgregar,
+        cantidad_a_ajustar: cantidadAAjustar,
       };
       console.log("mi producto quedó asi:", data);
       try {
         const response = await axios.post(
-          "http://localhost:3000/inventario/updateproduct",
+          "http://localhost:3000/inventario/ajustar",
           data,
           {
             headers: {
@@ -49,7 +49,7 @@ export const SearchBar = () => {
 
         if (response.status === 200) {
           console.log("Producto actualizado exitosamente");
-          alert("Producto actualizado exitosamente");
+          alert(`Se ajustó la cantidad de ${foundProduct?.cantidad_actual} a ${cantidadAAjustar}`);
         } else {
           console.log("Error al actualizar el producto");
           alert("Error al actualizar el producto");
@@ -63,14 +63,17 @@ export const SearchBar = () => {
 
   return (
     <>
+      <h2 style={{ color: "purple" }}>AJUSTES</h2>
       <form action="" style={{ display: "flex", flexDirection: "column" }}>
-        <label htmlFor="codigo_de_barras">Código de barras</label>
-        <input
-          type="text"
-          value={codigoBarrasInput}
-          onChange={(e) => setCodigoBarrasInput(e.target.value)}
-          onKeyDown={handleKeyPress}
-        />
+        <div className="row">
+          <label htmlFor="codigo_de_barras">Código de barras</label>
+          <input
+            type="text"
+            value={codigoBarrasInput}
+            onChange={(e) => setCodigoBarrasInput(e.target.value)}
+            onKeyDown={handleKeyPress}
+          />
+        </div>
         <label htmlFor="descripcion">
           <span style={{ fontWeight: "bold" }}>Descripcion:</span>{" "}
           {foundProduct?.descripcion}
@@ -81,15 +84,15 @@ export const SearchBar = () => {
         </label>
         {/* <button type="submit">Buscar</button> */}
       </form>
-      <label htmlFor="cantidad_a_agregar">
-        Cantidad a agregar:{" "}
+      <label htmlFor="nueva_cantidad">
+        Nueva cantidad:{" "}
         <input
           type="text"
-          value={cantidadAAgregar}
-          onChange={(e) => setCantidadAAgregar(e.target.value)}
+          value={cantidadAAjustar}
+          onChange={(e) => setCantidadAAjustar(e.target.value)}
         />
       </label>
-      <button onClick={() => fetchData()}>Agregar a cantidad</button>
+      <button onClick={() => fetchData()}>Ajustar cantidad</button>
     </>
   );
 };

@@ -15,6 +15,7 @@ import { Configuracion } from "./Configuracion";
 import { Corte } from "./Corte";
 import { Agregar } from "./Inventario/Agregar";
 import { Reporte } from "./Inventario/Reporte";
+import { Ajustes } from "./Inventario/Ajustes";
 
 export const NavBar = () => {
   return (
@@ -46,6 +47,7 @@ export const NavBar = () => {
         <Route path="/inventario" element={<Inventario />}>
           <Route path="agregarinventario" element={<Agregar />} />
           <Route path="reporte" element={<Reporte />} />
+          <Route path="ajustar" element={<Ajustes />} />
         </Route>
         <Route path="/configuracion" element={<Configuracion />} />
         <Route path="/corte" element={<Corte />} />
