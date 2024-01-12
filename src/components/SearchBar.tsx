@@ -38,7 +38,7 @@ export const SearchBar = () => {
         console.log("mi producto quedó asi:", data);
         try {
           const response = await axios.post(
-            "http://localhost:3000/updateProduct",
+            "http://localhost:3000/inventario/updateproduct",
             data,
             {
               headers: {
