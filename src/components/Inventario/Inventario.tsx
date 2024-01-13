@@ -12,7 +12,9 @@ export const Inventario = () => {
         <NavLink to="ajustar">
           <Boton texto="Ajustes" />
         </NavLink>
-        <Boton texto="Productos bajos en Inventario" />
+        <NavLink to="bajoseninventario">
+          <Boton texto="Productos bajos en Inventario" />
+        </NavLink>
         <NavLink to="reporte">
           <Boton texto="Reporte de Inventario" />
         </NavLink>

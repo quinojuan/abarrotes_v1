@@ -16,6 +16,7 @@ import { Corte } from "./Corte";
 import { Agregar } from "./Inventario/Agregar";
 import { Reporte } from "./Inventario/Reporte";
 import { Ajustes } from "./Inventario/Ajustes";
+import { BajosEnInventario } from "./Inventario/BajosEnInventario";
 
 export const NavBar = () => {
   return (
@@ -48,6 +49,7 @@ export const NavBar = () => {
           <Route path="agregarinventario" element={<Agregar />} />
           <Route path="reporte" element={<Reporte />} />
           <Route path="ajustar" element={<Ajustes />} />
+          <Route path="bajoseninventario" element={<BajosEnInventario />} />
         </Route>
         <Route path="/configuracion" element={<Configuracion />} />
         <Route path="/corte" element={<Corte />} />
