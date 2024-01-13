@@ -22,7 +22,9 @@ const useProducts = () => {
     fetchProducts();
   }, []);
 
-  return { productos, loading, error };
+  const productosBajosEnInventario = productos.filter(({cantidad_actual, minimo}) => cantidad_actual <= minimo)
+
+  return { productos, loading, error, productosBajosEnInventario };
 };
 
 export default useProducts;

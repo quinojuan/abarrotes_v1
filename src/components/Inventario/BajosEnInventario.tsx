@@ -1,8 +1,7 @@
 import useProducts from "../../hooks/useProducts";
 
 export const BajosEnInventario = () => {
-  const {productos} = useProducts();
-  const productosFiltrados = productos.filter(({cantidad_actual, minimo}) => cantidad_actual <= minimo)
+  const {productosBajosEnInventario} = useProducts();
 
   return (
     <>
@@ -26,7 +25,7 @@ export const BajosEnInventario = () => {
           </tr>
         </thead>
         <tbody>
-          {productosFiltrados.map((producto, index) => (
+          {productosBajosEnInventario.map((producto, index) => (
             <tr key={index}>
               <td>{producto.codigo_de_barras}</td>
               <td>{producto.descripcion}</td>
