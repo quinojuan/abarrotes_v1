@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import { Boton } from "./Boton";
+import { Inputs } from "../../types/types";
 import axios from "axios";
-import { Inputs } from "../types/types";
+import { Boton } from "../Boton";
 
-export const Productos = () => {
+export const Nuevo = () => {
   const {
     register,
     handleSubmit,
@@ -20,17 +20,7 @@ export const Productos = () => {
   });
 
   return (
-    <div className="container-productos">
-      <h2>Productos</h2>
-      <div>
-        <Boton texto="Nuevo" />
-        <Boton texto="Modificar" />
-        <Boton texto="Eliminar" />
-        <Boton texto="Departamentos" />
-        <Boton texto="Ventas por período" />
-        <Boton texto="Promociones" />
-        <Boton texto="Importar" />
-      </div>
+    <>
       <h3>NUEVO PRODUCTO</h3>
       <p>Producto</p>
       <form className="form-productos" onSubmit={onSubmit}>
@@ -144,6 +134,6 @@ export const Productos = () => {
 
         <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>
-    </div>
+    </>
   );
 };

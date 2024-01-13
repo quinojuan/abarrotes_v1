@@ -1,14 +1,12 @@
 import {
-  // Link,
   NavLink,
   Route,
   Routes,
-  // useParams,
-  // Outlet,
 } from "react-router-dom";
+
 import { Boton } from "./Boton";
 import { Sells } from "./Sells";
-import { Productos } from "./Productos";
+import { Productos } from "./Productos/Productos";
 import { Clientes } from "./Clientes";
 import { Inventario } from "./Inventario/Inventario";
 import { Configuracion } from "./Configuracion";
@@ -17,6 +15,8 @@ import { Agregar } from "./Inventario/Agregar";
 import { Reporte } from "./Inventario/Reporte";
 import { Ajustes } from "./Inventario/Ajustes";
 import { BajosEnInventario } from "./Inventario/BajosEnInventario";
+import { Modificar } from "./Productos/Modificar";
+import { Nuevo } from "./Productos/Nuevo";
 
 export const NavBar = () => {
   return (
@@ -44,7 +44,10 @@ export const NavBar = () => {
       <Routes>
         <Route path="/" element={<Sells />} />
         <Route path="/clientes" element={<Clientes />} />
-        <Route path="/productos" element={<Productos />} />
+        <Route path="/productos" element={<Productos />}>
+          <Route path="nuevo" element={<Nuevo />} />
+          <Route path="modificar" element={<Modificar />} />
+        </Route>
         <Route path="/inventario" element={<Inventario />}>
           <Route path="agregarinventario" element={<Agregar />} />
           <Route path="reporte" element={<Reporte />} />
