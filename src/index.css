@@ -265,3 +265,9 @@ button {
 .active button {
   background: rgb(113, 112, 112);
 }
+
+.modificar-container {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useForm } from "react-hook-form";
 <<<<<<<< HEAD:src/components/Productos/Productos.tsx
 import { Boton } from "../Boton";
@@ -142,29 +141,5 @@ export const Nuevo = () => {
         <pre>{JSON.stringify(watch(), null, 2)}</pre>
       </form>
     </>
-=======
-import { Boton } from "../Boton";
-import { NavLink, Outlet } from "react-router-dom";
-
-export const Productos = () => {
-  return (
-    <div className="container-productos">
-      <h2>Productos</h2>
-      <div>
-        <NavLink to="nuevo">
-          <Boton texto="Nuevo" />
-        </NavLink>
-        <NavLink to="modificar">
-          <Boton texto="Modificar" />
-        </NavLink>
-        <Boton texto="Eliminar" />
-        <Boton texto="Departamentos" />
-        <Boton texto="Ventas por período" />
-        <Boton texto="Promociones" />
-        <Boton texto="Importar" />
-      </div>
-      <Outlet />
-    </div>
->>>>>>> 40566ddb5d8d304000ce3b9d4cad86ef3e8ead1e
   );
 };
