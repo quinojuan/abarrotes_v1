@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Boton } from "./Boton";
+import { Boton } from "../Boton";
 import axios from "axios";
-import { Inputs } from "../types/types";
+import { Inputs } from "../../types/types";
 
 export const Productos = () => {
   const {

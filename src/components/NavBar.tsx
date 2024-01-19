@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Boton } from "./Boton";
 import { Sells } from "./Sells";
-import { Productos } from "./Productos";
+import { Productos } from "./Productos/Productos";
 import { Clientes } from "./Clientes";
 import { Inventario } from "./Inventario/Inventario";
 import { Configuracion } from "./Configuracion";
