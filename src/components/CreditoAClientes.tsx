@@ -1,5 +1,3 @@
-// import { SearchBar } from "./SearchBar";
-
 export const CreditoAClientes = () => {
   return (
     <>

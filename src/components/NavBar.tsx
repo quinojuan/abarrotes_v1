@@ -17,6 +17,7 @@ import { Ajustes } from "./Inventario/Ajustes";
 import { BajosEnInventario } from "./Inventario/BajosEnInventario";
 import { Modificar } from "./Productos/Modificar";
 import { Nuevo } from "./Productos/Nuevo";
+import { Eliminar } from "./Productos/Eliminar";
 
 export const NavBar = () => {
   return (
@@ -47,6 +48,7 @@ export const NavBar = () => {
         <Route path="/productos" element={<Productos />}>
           <Route path="nuevo" element={<Nuevo />} />
           <Route path="modificar" element={<Modificar />} />
+          <Route path="eliminar" element={<Eliminar />} />
         </Route>
         <Route path="/inventario" element={<Inventario />}>
           <Route path="agregarinventario" element={<Agregar />} />

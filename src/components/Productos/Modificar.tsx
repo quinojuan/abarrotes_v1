@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import { Inputs } from "../../types/types";
+import axios from "axios";
 // import axios from "axios";
 
 export const Modificar = () => {
@@ -35,6 +36,7 @@ export const Modificar = () => {
 
   const productoActualizado = {
     ...productoEncontrado,
+    codigo_previo: productoEncontrado?.codigo_de_barras,
     codigo_de_barras:
       nuevoCodigoDeBarras || productoEncontrado?.codigo_de_barras,
     descripcion: nuevaDescripcion || productoEncontrado?.descripcion,
@@ -54,7 +56,7 @@ export const Modificar = () => {
       return;
     }
     console.log(productoActualizado);
-    // axios.post("http://localhost:3000/updateproduct", productoActualizado);
+    axios.post("http://localhost:3000/productos/updateproduct", productoActualizado);
   };
 
   const cancelar = () => {
@@ -99,7 +101,7 @@ export const Modificar = () => {
               <input
                 type="text"
                 value={nuevoCodigoDeBarras}
-                onChange={(e) => setNuevoCodigoDeBarras(e.target.value)}
+                onChange={(e) => setNuevoCodigoDeBarras(e.target.value)} // acá tengo que implementar algo para evitar que el usuario quiera usar un codigo que ya esté en uso actualmente. Quizas con una funcion dedicada handleCodigoDeBarras que primero pregunte si el codigo existe
                 placeholder="Nuevo código de barras"
               />
               <input

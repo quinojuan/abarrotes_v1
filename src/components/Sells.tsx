@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { TableSells } from "./TableSells";
-import { Inputs } from "../types/types";
-import axios from "axios";
+// import { Inputs } from "../types/types";
+// import axios from "axios";
 import { SearchBar } from "./SearchBar";
+import useProducts from "../hooks/useProducts";
 
 export const Sells = () => {
-  const [products, setProducts] = useState<Inputs[]>([]);
+  const {productos} = useProducts();
+  console.log(productos)
 
-  useEffect(() => {
-    axios("http://localhost:3000/productos")
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.error("Error al obtener los productos", error));
-  }, []);
-  console.log(products);
   return (
     <>
       <div>
