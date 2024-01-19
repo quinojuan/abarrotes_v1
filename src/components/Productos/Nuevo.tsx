@@ -1,13 +1,7 @@
 import { useForm } from "react-hook-form";
-<<<<<<<< HEAD:src/components/Productos/Productos.tsx
 import { Boton } from "../Boton";
 import axios from "axios";
 import { Inputs } from "../../types/types";
-========
-import { Inputs } from "../../types/types";
-import axios from "axios";
-import { Boton } from "../Boton";
->>>>>>>> 40566ddb5d8d304000ce3b9d4cad86ef3e8ead1e:src/components/Productos/Nuevo.tsx
 
 export const Nuevo = () => {
   const {
