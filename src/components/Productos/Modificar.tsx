@@ -16,7 +16,7 @@ export const Modificar = () => {
   const [precioVenta, setPrecioVenta] = useState("");
   const [precioMayor, setPrecioMayor] = useState("");
   const [departamento, setDepartamento] = useState("");
-  const [utilizaInventario, setUtilizaInventario] = useState(true);
+  const [utilizaInventario, setUtilizaInventario] = useState<boolean>(true);
   const [cantidadActual, setCantidadActual] = useState("");
   const [minimo, setMinimo] = useState("");
 
@@ -43,9 +43,8 @@ export const Modificar = () => {
     precio_venta: precioVenta || productoEncontrado?.precio_venta,
     precio_mayor: precioMayor || productoEncontrado?.precio_mayor,
     departamento: departamento || productoEncontrado?.departamento,
-    utiliza_inventario:
-      utilizaInventario || productoEncontrado?.utiliza_inventario,
-    cantidad_actual: cantidadActual || productoEncontrado?.cantidad_actual,
+    utiliza_inventario: utilizaInventario,
+    //cantidad_actual: cantidadActual || productoEncontrado?.cantidad_actual, esta cantidad no la envio porque tengo otro mecanismo para ajustar la cantidad.
     minimo: minimo || productoEncontrado?.minimo,
   };
 
@@ -176,10 +175,16 @@ export const Modificar = () => {
                   checked={utilizaInventario}
                   onChange={(e) => {
                     setUtilizaInventario(e.target.checked);
-                    console.log(e.target.checked);
                   }}
                 />
               </div>
+              <br />
+              <input
+                type="text"
+                value={minimo}
+                onChange={(e) => setMinimo(e.target.value)}
+                placeholder="Nueva cantidad mínima"
+              />
             </div>
           </div>
           <div>
