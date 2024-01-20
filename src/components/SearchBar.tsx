@@ -3,7 +3,7 @@ import useProducts from "../hooks/useProducts";
 import { Inputs } from "../types/types";
 import axios from "axios";
 
-export const SearchBar = () => {
+export const SearchBar = ({onSearch}) => {
   const [foundProduct, setFoundProduct] = useState<null | Inputs>(null);
   const [codigoBarrasInput, setCodigoBarrasInput] = useState("");
   const { productos, loading, error } = useProducts();
