@@ -11,6 +11,7 @@ export type Inputs = {
   utiliza_inventario: boolean;
   cantidad_actual: string;
   minimo: string;
+  cantidad?:string | undefined
 };
 
 export type AgregarInputs = Omit<

@@ -24,6 +24,30 @@ const productos = [
     minimo: 2,
   },
   {
+    codigo_de_barras: "1001",
+    como_se_vende: "porPieza",
+    descripcion: "Teclado mecánico",
+    precio_costo: 2000,
+    precio_venta: 3500,
+    precio_mayor: 0,
+    departamento: "accesorios",
+    utiliza_inventario: 1,
+    cantidad_actual: 10,
+    minimo: 2,
+  },
+  {
+    codigo_de_barras: "1001",
+    como_se_vende: "porPieza",
+    descripcion: "Teclado mecánico",
+    precio_costo: 2000,
+    precio_venta: 3500,
+    precio_mayor: 0,
+    departamento: "accesorios",
+    utiliza_inventario: 1,
+    cantidad_actual: 10,
+    minimo: 2,
+  },
+  {
     codigo_de_barras: "1002",
     como_se_vende: "porPieza",
     descripcion: "Impresora chorro de tinta Epson",
@@ -33,6 +57,18 @@ const productos = [
     departamento: "pantalones",
     utiliza_inventario: 1,
     cantidad_actual: 15,
+    minimo: 2,
+  },
+  {
+    codigo_de_barras: "1003",
+    como_se_vende: "porPieza",
+    descripcion: "test",
+    precio_costo: 10,
+    precio_venta: 20,
+    precio_mayor: 5,
+    departamento: "Remeras",
+    utiliza_inventario: 0,
+    cantidad_actual: 20,
     minimo: 2,
   },
   {
@@ -85,6 +121,65 @@ const productos = [
   },
 ];
 
-const filteredProducts = productos.filter(producto => producto.cantidad_actual <= producto.minimo)
+// const sumartotal = (productos) => {
+//   const suma = productos.reduce((acumulador, objeto) => {
+//     if(objeto.hasOwnProperty("precio_venta")) {
+//       acumulador += objeto.precio_venta
+//     }
+//     return acumulador
+//   }, 0)
+//   return suma
+// }
 
-console.log(filteredProducts)
+// console.log(sumartotal(productos));
+
+// const contarOcurrencias = productos.reduce((acumulador, producto) => {
+//   const codigo = producto.codigo_de_barras;
+
+//   if (acumulador[codigo]) {
+//     acumulador[codigo].cantidad += 1
+//   } else {
+//     acumulador[codigo] = {
+//       codigo_de_barras: codigo,
+//       cantidad: 1
+//     }
+//   }
+//   return acumulador
+// })
+
+// const result = Object.values(contarOcurrencias)
+// console.log(contarOcurrencias)
+// console.log(result)
+
+const addProductToCart = async (product) => {
+  // check if the adding product exist
+  let findProudctInCart = await cart.find((i) => {
+    return i.id === product.id;
+  });
+
+  if (findProudctInCart) {
+    let newCart = [];
+    let newItem;
+
+    cart.forEach((carItem) => {
+      if (carItem.id == product.id) {
+        newItem = {
+          ...carItem,
+          quantity: carItem.price * (carItem.quantity + 1),
+        };
+        newCart.push(newItem);
+      } else {
+        newCart.push(carItem);
+      }
+    });
+
+    setCart(newCart);
+  } else {
+    let addingProduct = {
+      ...product,
+      quantity: 1,
+      totalAmount: product.price,
+    };
+    setCart([...cart, addingProduct]);
+  }
+};

@@ -1,13 +1,56 @@
 import { useEffect, useState } from "react";
-import { TableSells } from "./TableSells";
-// import { Inputs } from "../types/types";
-// import axios from "axios";
-import { SearchBar } from "./SearchBar";
 import useProducts from "../hooks/useProducts";
+import { BusquedaProducto } from "./BusquedaProducto";
+import { Inputs } from "../types/types";
+import { ResultadosTabla } from "./ResultadosTabla";
 
 export const Sells = () => {
-  const {productos} = useProducts();
-  console.log(productos)
+  const { productos } = useProducts();
+  console.log(productos);
+  const [resultados, setResultados] = useState<Inputs[]>([]);
+  const [total, setTotal] = useState(0);
+
+  const handleSearch = (codigo: string) => {
+    const resultadoBusqueda = productos.filter((producto) =>
+      producto.codigo_de_barras.includes(codigo)
+    );
+    setResultados((prevResultados) => [
+      ...prevResultados,
+      ...resultadoBusqueda,
+    ]);
+  };
+  console.log(resultados);
+
+  const contarOcurrencias = resultados?.reduce((acumulador, producto) => {
+    const codigo = producto.codigo_de_barras;
+  
+    if (acumulador[codigo]) {
+      acumulador[codigo].cantidad += 1
+    } else {
+      acumulador[codigo] = {
+        codigo_de_barras: codigo,
+        cantidad: 1
+      }
+    }
+    return acumulador
+  })
+
+  console.log(contarOcurrencias)
+
+  
+  const sumartotal = (productos: Inputs[]) => {
+    const suma = productos.reduce((acumulador: number, objeto) => {
+      if (objeto.hasOwnProperty("precio_venta")) {
+        acumulador += parseInt(objeto.precio_venta);
+      }
+      return acumulador;
+    }, 0);
+    return suma;
+  };
+
+  useEffect(() => {
+    setTotal(sumartotal(resultados));
+  }, [resultados.length]);
 
   return (
     <>
@@ -17,8 +60,8 @@ export const Sells = () => {
         </h3>
 
         {/* aca va el componente de la barra de busquedas */}
-        <SearchBar />
-
+        <BusquedaProducto onSearch={handleSearch} />
+        <ResultadosTabla resultados={resultados} />
         <hr />
         <div className="flex justify-content-evenly mt-2 mb-2">
           <button>Varios</button>
@@ -30,17 +73,11 @@ export const Sells = () => {
           <button>Borrar Art.</button>
         </div>
         <hr />
-        <TableSells
-          barcode={1000}
-          description="Buzo polar"
-          quantity={8}
-          sell_price={600}
-        />
-        <hr />
+
         <div className="flex align-items-center justify-content-end">
           <button className="mr-3">Cobrar</button>
           <label htmlFor="" className="text-blue-600 text-5xl w-3 text-right">
-            $ 5.000
+            {total}
           </label>
         </div>
       </div>
