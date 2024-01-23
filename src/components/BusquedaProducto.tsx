@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Inputs } from "../types/types";
 
 interface BusquedaProductoProps {
-  onSearch: (codigo: string) => void;
+  onSearch: (product: Inputs) => void;
 }
 
 export const BusquedaProducto: React.FC<BusquedaProductoProps> = ({

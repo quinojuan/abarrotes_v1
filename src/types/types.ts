@@ -5,13 +5,13 @@ export type Inputs = {
   descripcion: string;
   como_se_vende?: string;
   precio_costo: string;
-  precio_venta: string;
+  precio_venta: number;
   precio_mayor: string;
   departamento?: string;
   utiliza_inventario: boolean;
   cantidad_actual: string;
   minimo: string;
-  cantidad?:string | undefined
+  quantity?:number | undefined
 };
 
 export type AgregarInputs = Omit<
